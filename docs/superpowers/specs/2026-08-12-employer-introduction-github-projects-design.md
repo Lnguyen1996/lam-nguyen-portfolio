@@ -2,7 +2,7 @@
 
 ## Goal
 
-Reframe Lam Nguyen's portfolio for potential employers by giving the homepage a substantial first-person introduction and replacing placeholder work with five representative public GitHub repositories.
+Reframe Lam Nguyen's portfolio for potential employers by giving the homepage a substantial first-person introduction, highlighting his current work experience, and replacing placeholder work with five representative public GitHub repositories.
 
 The update must preserve the existing Quiet Botanical visual direction, responsive behavior, accessibility, no-JavaScript fallback, and automatic GitHub Pages deployment.
 
@@ -31,6 +31,30 @@ The introduction will contain three paragraphs:
 > The projects below demonstrate how I apply these principles across AI engineering, backend architecture, frontend development, developer tooling, and end-to-end product delivery.
 
 The existing “View selected work” link will remain and continue to move focus toward the project section.
+
+## Current Experience
+
+A focused “Current experience” section will appear between the introduction and featured projects. It will show only Lam's latest LinkedIn position rather than reproducing his full employment history.
+
+**Role details**
+
+- Advanced Application Engineer
+- Waystar · Full-time
+- August 2024–Present
+- Kentucky, United States · Hybrid
+
+**Summary**
+
+> At Waystar, I architect and extend high-performance microservices and distributed systems, with an emphasis on concurrency, query optimization, locking behavior, throughput, and reliability under demanding workloads. I contribute across technical planning, service architecture, implementation, and quality engineering, using unit, automation, QA, and end-to-end testing to reduce regression risk and support dependable delivery.
+
+**Highlights**
+
+- Led the technical planning and end-to-end service architecture for a new product offering that created an additional revenue stream.
+- Applied LangChain, large language models, GitHub Copilot, and agentic tooling to accelerate engineering workflows and make AI-assisted development more accessible to the team.
+- Earned the Google Cloud AI DevOps certification, covering LLM integration, model deployment pipelines, and machine-learning operations.
+- Helped introduce an Agentic OS platform that automated internal documentation and simplified agentic development for other engineers.
+
+The section will include a “View experience on LinkedIn” link to `https://www.linkedin.com/in/lam-nguyen-engineer/details/experience/`. The link will open in a new tab with `rel="noreferrer"`.
 
 ## Featured Repositories
 
@@ -66,13 +90,14 @@ The about copy will reinforce employer-relevant working style without repeating 
 
 ## Architecture and Data Flow
 
-Static, typed content will remain the single source of truth in `src/content/portfolio.ts`. The project content model will continue to contain a title, summary, technology metadata, and URL. Because every featured repository is available, project rendering will no longer need disabled placeholder rows for the production content.
+Static, typed content will remain the single source of truth in `src/content/portfolio.ts`. A typed current-experience record will contain the role, employer, employment type, dates, location, summary, highlights, and LinkedIn URL. The project content model will continue to contain a title, summary, technology metadata, and URL. Because every featured repository is available, project rendering will no longer need disabled placeholder rows for the production content.
 
-The hero component will render the introduction as multiple semantic paragraphs instead of one string. The project component will render five linked rows followed by the profile-level repositories link. No runtime GitHub API request will be added; repository details are curated at build time so the portfolio remains fast and dependable.
+The hero component will render the introduction as multiple semantic paragraphs instead of one string. A dedicated experience component will render the current role as a semantic section with a heading, role metadata, summary, highlights, and external LinkedIn link. The project component will render five linked rows followed by the profile-level repositories link. No runtime LinkedIn or GitHub API request will be added; professional and repository details are curated at build time so the portfolio remains fast and dependable.
 
 ## Error Handling and Resilience
 
 - The static no-JavaScript HTML will contain the revised identity statement, a condensed introduction, and the same five repository links.
+- The no-JavaScript content will also include the current Waystar role, dates, a concise experience summary, and the LinkedIn experience link.
 - External links will remain usable if JavaScript fails.
 - If the optional portrait is absent or fails, the existing botanical fallback will remain unchanged.
 - The page will not depend on GitHub API availability at runtime.
@@ -89,7 +114,9 @@ The hero component will render the introduction as multiple semantic paragraphs 
 ## Testing and Acceptance Criteria
 
 - Unit tests verify the approved headline, three introduction paragraphs, five projects, exact repository URLs, and the all-repositories link.
+- Unit tests verify the exact current role, employer, dates, four approved highlights, and LinkedIn experience URL.
+- Component tests verify the experience section's semantic heading, visible role metadata, highlight list, and safe external-link attributes.
 - Component tests verify that all five project rows are anchors and external-link attributes are present.
 - Browser tests continue to cover responsive widths, 200% text scaling, keyboard navigation, reduced motion, no-JavaScript content, and WCAG A/AA automated checks.
 - The production build uses the GitHub Pages base path.
-- After publishing, the GitHub Actions deployment must succeed and the live site must show the revised introduction and five functioning repository links.
+- After publishing, the GitHub Actions deployment must succeed and the live site must show the revised introduction, current Waystar experience, and five functioning repository links.
