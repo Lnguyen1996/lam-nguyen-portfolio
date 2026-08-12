@@ -4,13 +4,37 @@
 
 Reframe Lam Nguyen's portfolio for potential employers by giving the homepage a substantial first-person introduction, highlighting his current work experience, and replacing placeholder work with five representative public GitHub repositories.
 
-The update must preserve the existing Quiet Botanical visual direction, responsive behavior, accessibility, no-JavaScript fallback, and automatic GitHub Pages deployment.
+The update will replace the existing Quiet Botanical treatment with the approved recruiter-first, LinkedIn-inspired profile direction while preserving responsive behavior, accessibility, the no-JavaScript fallback, and automatic GitHub Pages deployment.
 
 ## Audience and Positioning
 
 The primary audience is hiring managers and engineering interviewers looking for evidence of full-stack development, AI engineering, and distributed-systems experience.
 
 The page will position Lam as a full-stack and AI engineer who builds dependable distributed systems. It will avoid unsupported claims about years of experience, employers, availability, or production scale.
+
+## Approved Visual Direction
+
+The interface will use the selected “Recruiter-first profile” direction. It should feel familiar to LinkedIn users without reproducing LinkedIn's application chrome or profile page.
+
+**Visual language**
+
+- LinkedIn-inspired blue `#0A66C2` is the primary action, link, focus, and emphasis color.
+- White content surfaces sit on a pale blue-gray `#EEF3F7` page background.
+- Dark slate `#182431` is the primary text color and muted slate `#5B6670` is used for secondary copy while maintaining WCAG AA contrast.
+- Pale blue `#E7F3FF` is reserved for quiet emphasis, current-experience identity marks, and selected states.
+- The typography uses a deliberate system sans-serif stack throughout for a clean professional profile character. The previous editorial serif treatment will be removed.
+- Corners remain restrained at 8–14 pixels. Full pills are limited to buttons and compact labels. Shadows remain shallow and are never combined with ornamental borders.
+
+**Page structure**
+
+1. Compact header with Lam's identity and About, Experience, Projects, LinkedIn, and GitHub destinations.
+2. Recruiter-first hero with the approved role, headline, three-paragraph introduction, an `LN` profile monogram, and primary project and LinkedIn actions.
+3. Current Waystar experience.
+4. Five featured GitHub projects followed by the all-repositories action.
+5. Employer-oriented about and working principles.
+6. Contact footer containing LinkedIn and GitHub only.
+
+The hero uses a two-column composition on wide screens and stacks copy before the monogram on small screens. Projects remain full-width rows rather than a repeated card grid. Hover and focus treatments use restrained blue surface changes and small directional-arrow movement. No content is hidden pending animation.
 
 ## Hero and Introduction
 
@@ -30,7 +54,7 @@ The introduction will contain three paragraphs:
 
 > The projects below demonstrate how I apply these principles across AI engineering, backend architecture, frontend development, developer tooling, and end-to-end product delivery.
 
-The existing “View selected work” link will remain and continue to move focus toward the project section.
+The primary “View projects” action will continue to move focus toward the project section. A secondary “View LinkedIn” action will open Lam's LinkedIn profile in a new tab with `rel="noreferrer"`.
 
 ## Current Experience
 
@@ -99,17 +123,19 @@ The hero component will render the introduction as multiple semantic paragraphs 
 - The static no-JavaScript HTML will contain the revised identity statement, a condensed introduction, and the same five repository links.
 - The no-JavaScript content will also include the current Waystar role, dates, a concise experience summary, and the LinkedIn experience link.
 - External links will remain usable if JavaScript fails.
-- If the optional portrait is absent or fails, the existing botanical fallback will remain unchanged.
+- If the optional portrait is absent or fails, the hero will show the approved `LN` profile monogram instead of an empty or broken image.
 - The page will not depend on GitHub API availability at runtime.
 
 ## Accessibility and Responsive Requirements
 
 - Preserve semantic heading order and the existing Work, About, and Contact navigation landmarks.
+- Add an Experience navigation destination and ensure every header target remains keyboard reachable.
 - Give external repository links descriptive accessible names through visible project titles.
 - Preserve visible keyboard focus and reduced-motion behavior.
 - Maintain no horizontal overflow from 320 to 1440 pixels and at 200% text scaling.
 - Keep all text readable with JavaScript disabled.
 - Do not add an email address or `mailto:` link.
+- Meet WCAG AA contrast for the approved blue, slate, white, and pale blue-gray palette.
 
 ## Testing and Acceptance Criteria
 
@@ -118,5 +144,6 @@ The hero component will render the introduction as multiple semantic paragraphs 
 - Component tests verify the experience section's semantic heading, visible role metadata, highlight list, and safe external-link attributes.
 - Component tests verify that all five project rows are anchors and external-link attributes are present.
 - Browser tests continue to cover responsive widths, 200% text scaling, keyboard navigation, reduced motion, no-JavaScript content, and WCAG A/AA automated checks.
+- Browser tests verify that the Experience navigation target, GitHub project links, profile-level repository link, and LinkedIn actions are reachable.
 - The production build uses the GitHub Pages base path.
 - After publishing, the GitHub Actions deployment must succeed and the live site must show the revised introduction, current Waystar experience, and five functioning repository links.
