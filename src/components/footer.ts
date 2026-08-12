@@ -9,7 +9,7 @@ export function createFooter(
   const links = contacts
     .map(
       ({ label, href }, index) =>
-        `<a${index === 0 ? ' class="contact__primary"' : ""} href="${href}">${label}<span aria-hidden="true"> ↗</span></a>`
+        `<a${index === 0 ? ' class="contact__primary"' : ""} href="${href}" target="_blank" rel="noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`
     )
     .join("");
   footer.innerHTML = [

@@ -4,23 +4,34 @@ export function createHero(content: PortfolioContent): HTMLElement {
   const hero = document.createElement("section");
   hero.id = "hero";
   hero.className = "hero";
+
+  const linkedIn = content.contacts.find(({ label }) => label === "LinkedIn");
   const image = content.portraitSrc
-    ? `<img data-portrait src="${content.portraitSrc}" alt="${content.portraitAlt}" width="600" height="800">`
+    ? `<img data-portrait src="${content.portraitSrc}" alt="${content.portraitAlt}" width="600" height="600">`
     : "";
   const fallbackHidden = content.portraitSrc ? " hidden" : "";
+  const introduction = content.intro
+    .map((paragraph) => `<p class="hero__intro">${paragraph}</p>`)
+    .join("");
+
   hero.innerHTML = [
     '<div class="hero__copy">',
-    `<p class="eyebrow">${content.role}</p>`,
+    `<p class="hero__role">${content.role}</p>`,
     `<h1>${content.headline}</h1>`,
-    `<p class="hero__intro">${content.intro}</p>`,
-    '<a class="text-link" href="#work"><span class="text-link__label">View selected work</span><span aria-hidden="true">↘</span></a>',
+    `<div class="hero__introduction">${introduction}</div>`,
+    '<div class="hero__actions">',
+    '<a class="button button--primary" href="#work">View projects</a>',
+    linkedIn
+      ? `<a class="button button--secondary" href="${linkedIn.href}" target="_blank" rel="noreferrer">View LinkedIn <span aria-hidden="true">↗</span></a>`
+      : "",
     "</div>",
-    '<div class="hero__visual" aria-hidden="true">',
-    '<span class="hero__stem"></span>',
-    `<div class="hero__fallback" data-portrait-fallback${fallbackHidden}></div>`,
+    "</div>",
+    '<div class="hero__profile">',
+    `<div class="hero__monogram" data-profile-fallback${fallbackHidden} aria-hidden="true">LN</div>`,
     image,
-    "</div>",
-    '<p class="hero__note">Built with clarity, care, and a healthy respect for the details.</p>'
+    '<p class="hero__profile-note">AI engineering · Full-stack delivery · Distributed systems</p>',
+    "</div>"
   ].join("");
+
   return hero;
 }

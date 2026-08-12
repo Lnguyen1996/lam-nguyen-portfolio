@@ -5,11 +5,18 @@ import { createProjectList } from "../../src/components/projects";
 import { portfolioContent } from "../../src/content/portfolio";
 
 describe("portfolio sections", () => {
-  it("renders ordered rows and does not link unavailable work", () => {
-    const section = createProjectList(portfolioContent.projects);
-    expect(section.querySelectorAll(".project-row")).toHaveLength(3);
-    expect(section.querySelectorAll("a.project-row")).toHaveLength(0);
+  it("renders five safe repository links and the GitHub profile action", () => {
+    const section = createProjectList(
+      portfolioContent.projects,
+      portfolioContent.repositoriesHref
+    );
+    expect(section.querySelectorAll("a.project-row")).toHaveLength(5);
+    expect(section.querySelectorAll('a.project-row[target="_blank"][rel="noreferrer"]')).toHaveLength(5);
     expect(section.querySelector(".project-row__number")?.textContent).toBe("01");
+    expect(section.querySelector(".work__all")?.getAttribute("href")).toBe(
+      portfolioContent.repositoriesHref
+    );
+    expect(section.querySelector(".work__all")?.getAttribute("rel")).toBe("noreferrer");
   });
 
   it("renders all approved principles", () => {
@@ -23,9 +30,10 @@ describe("portfolio sections", () => {
   });
 
   it("renders the approved contact invitation", () => {
-    const footer = createFooter([]);
+    const footer = createFooter(portfolioContent.contacts);
     expect(footer.querySelector("h2")?.textContent).toBe(
       "Have a thoughtful problem to solve?"
     );
+    expect(footer.querySelectorAll('a[target="_blank"][rel="noreferrer"]')).toHaveLength(2);
   });
 });

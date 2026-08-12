@@ -5,7 +5,7 @@ export function bindPortraitFallback(root: ParentNode): void {
       () => {
         image.hidden = true;
         image.parentElement
-          ?.querySelector<HTMLElement>("[data-portrait-fallback]")
+          ?.querySelector<HTMLElement>("[data-profile-fallback]")
           ?.removeAttribute("hidden");
       },
       { once: true }

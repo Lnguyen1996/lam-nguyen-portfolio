@@ -4,27 +4,28 @@ import { portfolioContent } from "../../src/content/portfolio";
 import { bindPortraitFallback } from "../../src/interactions/portrait";
 
 describe("createHero", () => {
-  it("renders approved copy and an abstract fallback without a portrait", () => {
+  it("renders the approved introduction and monogram without a portrait", () => {
     const hero = createHero({ ...portfolioContent, portraitSrc: null });
     expect(hero.querySelector("h1")?.textContent).toBe(
-      "Useful software, thoughtfully made."
+      "Full-stack and AI engineer building dependable distributed systems."
     );
+    expect(hero.querySelectorAll(".hero__intro")).toHaveLength(3);
     expect(hero.querySelector("img")).toBeNull();
-    expect(hero.querySelector("[data-portrait-fallback]")).not.toBeNull();
+    expect(hero.querySelector("[data-profile-fallback]")?.textContent).toBe("LN");
   });
 
-  it("keeps a hidden fallback when a portrait exists", () => {
+  it("keeps a hidden monogram fallback when a portrait exists", () => {
     const hero = createHero({
       ...portfolioContent,
       portraitSrc: "/portrait.webp"
     });
     expect(hero.querySelector("img")?.getAttribute("src")).toBe("/portrait.webp");
     expect(
-      hero.querySelector("[data-portrait-fallback]")?.hasAttribute("hidden")
+      hero.querySelector("[data-profile-fallback]")?.hasAttribute("hidden")
     ).toBe(true);
   });
 
-  it("reveals the abstract fallback after an image error", () => {
+  it("reveals the monogram fallback after an image error", () => {
     const hero = createHero({
       ...portfolioContent,
       portraitSrc: "/missing.webp"
@@ -35,7 +36,7 @@ describe("createHero", () => {
     image.dispatchEvent(new Event("error"));
     expect(image.hidden).toBe(true);
     expect(
-      hero.querySelector<HTMLElement>("[data-portrait-fallback]")!.hidden
+      hero.querySelector<HTMLElement>("[data-profile-fallback]")!.hidden
     ).toBe(false);
   });
 });
