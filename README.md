@@ -2,6 +2,8 @@
 
 A responsive, accessible portfolio in the Quiet Botanical visual direction. The site is a small Vite + TypeScript build with semantic HTML, typed content, focused DOM components, and no runtime dependencies.
 
+Live site: https://lnguyen1996.github.io/lam-nguyen-portfolio/
+
 ## Run locally
 
 ```sh
@@ -33,4 +35,4 @@ Until a portrait is supplied, the hero intentionally uses the abstract botanical
 
 ## Production
 
-`npm run build` creates the deployable static site in `dist/`. It can be hosted on GitHub Pages, Vercel, Netlify, Cloudflare Pages, or any static web server.
+`npm run build` creates the deployable static site in `dist/`. Pushes to `main` automatically publish that build through GitHub Pages.
