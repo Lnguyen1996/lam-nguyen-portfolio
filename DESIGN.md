@@ -2,40 +2,43 @@
 
 ## Direction
 
-Quiet Botanical with a Lightly Personal treatment: warm, earthy, thoughtful, and dependable. The composition uses controlled asymmetry, one botanical form, editorial spacing, and minimal decoration.
+Recruiter-first professional profile: clear, structured, and LinkedIn-inspired without being a clone. A pale blue-gray page supports white profile surfaces, confident blue actions, slate text, and a dark navy closing section.
 
 ## Color Palette
 
-- Warm paper `#F1F1E8`: main surface
-- Misty sage `#E7EADF`: selected work
-- Soft moss `#ABB79B`: hero botanical form
-- Pale lichen `#C9CFBA`: supporting section
-- Forest ink `#263128`: primary text and focus
-- Deep forest `#2F3D32`: contact footer
-- Muted foliage `#556052`: secondary text
+- Page blue-gray `#EEF3F7`: main background
+- Surface white `#FFFFFF`: profile sections
+- Professional blue `#0A66C2`: primary actions and identity
+- Dark blue `#084F96`: hover states and strong links
+- Soft blue `#E7F3FF`: supporting information
+- Slate ink `#182431`: primary text
+- Muted slate `#5B6670`: secondary text
+- Divider `#D9E1E8`: one-pixel structure
+- Navy `#123B5D`: contact footer
 
 All normal text must meet WCAG AA contrast.
 
 ## Typography
 
-Use a restrained editorial serif for large headings and a neutral system sans serif for navigation, body copy, metadata, and controls. Headings use regular weight, close but readable spacing, compact line height, and fluid sizing. Body text starts at 16 pixels and stays within comfortable reading measures.
+Use a modern system sans-serif stack throughout. Headings are bold and compact with fluid sizing; body copy begins at 16 pixels, uses generous line height, and stays within a comfortable reading measure. Small labels use restrained uppercase lettering to clarify hierarchy.
 
 ## Layout
 
-The homepage contains a header and hero, full-width editorial project rows, a two-column about section, and a strong contact footer. Desktop uses a controlled overlap between hero copy and the botanical portrait area. Below 800 pixels, sections stack into one column. The site must not overflow horizontally from 320 pixels upward.
+The page order is introduction, current experience, featured GitHub projects, about, and contact. Content sits in a centered 74-rem column. Desktop hero content uses a wide copy area with a circular LN profile mark. Project evidence is displayed as five full-width rows rather than a generic card grid. Below 800 pixels, major sections stack into one column.
 
 ## Components
 
-- Site header: identity, anchor navigation, accessible small-screen menu
-- Hero: role, headline, introduction, primary work link, irregular portrait or abstract fallback, personal margin note
-- Project list: three ordered full-width rows, with inactive rows rendered honestly when case studies are unavailable
-- About: biography and three working principles
-- Contact footer: final invitation, verified contact actions, copyright
+- Site header: LN identity, internal section links, LinkedIn and GitHub destinations, accessible small-screen menu
+- Hero: long-form introduction, two clear actions, circular LN fallback, technical focus line
+- Current experience: latest Waystar role, dates, location, summary, four highlights, LinkedIn source
+- Project list: five linked GitHub repositories with concise evidence and repository metadata
+- About: short working philosophy and three principles
+- Contact footer: LinkedIn, GitHub, and copyright with no email address
 
 ## Shape and Motion
 
-Use one leaf-like hero form with irregular radii and slight rotation. Keep corners square or gently irregular and shadows rare. Motion lasts 150–300 milliseconds, uses opacity or small position changes, and is removed when reduced motion is requested.
+Use restrained 8- to 14-pixel radii, one-pixel dividers, and a single soft surface shadow. Motion lasts roughly 220 milliseconds and is limited to small position and color changes. Remove all motion when reduced motion is requested.
 
 ## Accessibility
 
-Use semantic landmarks and heading order, high-contrast 2-pixel focus outlines, visible keyboard states, decorative shapes hidden from assistive technology, and resilient static content when JavaScript is disabled.
+Use semantic landmarks and heading order, high-contrast three-pixel focus outlines, visible keyboard states, 44-pixel targets, safe external-link behavior, and resilient static content when JavaScript is disabled.

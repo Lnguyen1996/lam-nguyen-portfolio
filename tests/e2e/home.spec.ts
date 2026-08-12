@@ -12,9 +12,24 @@ for (const width of [320, 375, 768, 1024, 1440]) {
     const background = await page.locator("body").evaluate(
       (node) => getComputedStyle(node).backgroundColor
     );
-    expect(background).toBe("rgb(241, 241, 232)");
+    expect(background).toBe("rgb(238, 243, 247)");
   });
 }
+
+test("uses the recruiter-first blue system and sans-serif display type", async ({
+  page
+}) => {
+  await page.goto("/");
+
+  const primaryButton = page.getByRole("link", { name: "View projects" });
+  await expect(primaryButton).toHaveCSS("background-color", "rgb(10, 102, 194)");
+
+  const headingFont = await page
+    .getByRole("heading", { level: 1 })
+    .evaluate((node) => getComputedStyle(node).fontFamily.toLowerCase());
+  expect(headingFont).not.toContain("georgia");
+  expect(headingFont).toMatch(/segoe ui|arial|sans-serif/);
+});
 
 test("reduced motion removes transitions", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
