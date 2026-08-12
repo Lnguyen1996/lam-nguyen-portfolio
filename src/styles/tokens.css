@@ -1,0 +1,16 @@
+:root {
+  --paper: #f1f1e8;
+  --sage: #e7eadf;
+  --moss: #abb79b;
+  --lichen: #c9cfba;
+  --ink: #263128;
+  --forest: #2f3d32;
+  --muted: #556052;
+  --line: rgba(38, 49, 40, 0.28);
+  --light-ink: #f5f5ed;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+  --page-gutter: clamp(1.25rem, 5vw, 5rem);
+  --section-space: clamp(4.5rem, 10vw, 9rem);
+  --ease: 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
