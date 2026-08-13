@@ -10,6 +10,12 @@ describe("portfolioContent", () => {
       "Full-stack and AI engineer building dependable distributed systems."
     );
     expect(portfolioContent.intro).toHaveLength(3);
+    expect(portfolioContent.portraitSrc).toContain(
+      "lam-nguyen-suit-portrait.png"
+    );
+    expect(portfolioContent.portraitAlt).toBe(
+      "Lam Nguyen wearing a dark navy suit"
+    );
   });
 
   it("contains the approved current Waystar experience", () => {

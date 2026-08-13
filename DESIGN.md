@@ -29,7 +29,7 @@ The page order is introduction, current experience, featured GitHub projects, ab
 ## Components
 
 - Site header: LN identity, internal section links, LinkedIn and GitHub destinations, accessible small-screen menu
-- Hero: long-form introduction, two clear actions, circular LN fallback, technical focus line
+- Hero: long-form introduction, two clear actions, circular professional portrait with an LN fallback, technical focus line
 - Current experience: latest Waystar role, dates, location, summary, four highlights, LinkedIn source
 - Project list: five linked GitHub repositories with concise evidence and repository metadata
 - About: short working philosophy and three principles

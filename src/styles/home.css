@@ -212,6 +212,7 @@ main {
 }
 
 .hero__profile img {
+  height: auto;
   object-fit: cover;
 }
 

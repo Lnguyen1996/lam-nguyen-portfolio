@@ -32,6 +32,11 @@ export interface PortfolioContent {
   contacts: ReadonlyArray<{ label: string; href: string }>;
 }
 
+const portraitSrc = new URL(
+  "../assets/lam-nguyen-suit-portrait.png",
+  import.meta.url
+).href;
+
 export const portfolioContent: PortfolioContent = {
   name: "Lam Nguyen",
   role: "Full-stack and AI engineer · Distributed systems builder",
@@ -41,8 +46,8 @@ export const portfolioContent: PortfolioContent = {
     "I'm especially interested in distributed systems and the engineering decisions that make them reliable and maintainable. My work includes microservice-oriented architectures, event-driven communication, background processing, caching, real-time updates, containerized services, databases, and cloud-ready infrastructure. Whether I'm developing an AI-assisted product or a full-stack platform, I focus on clear boundaries, thoughtful trade-offs, maintainable code, and systems that teams can confidently operate and extend.",
     "The projects below demonstrate how I apply these principles across AI engineering, backend architecture, frontend development, developer tooling, and end-to-end product delivery."
   ],
-  portraitSrc: null,
-  portraitAlt: "Lam Nguyen",
+  portraitSrc,
+  portraitAlt: "Lam Nguyen wearing a dark navy suit",
   currentExperience: {
     role: "Advanced Application Engineer",
     employer: "Waystar",

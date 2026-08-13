@@ -29,6 +29,17 @@ test("uses the recruiter-first blue system and sans-serif display type", async (
     .evaluate((node) => getComputedStyle(node).fontFamily.toLowerCase());
   expect(headingFont).not.toContain("georgia");
   expect(headingFont).toMatch(/segoe ui|arial|sans-serif/);
+  const portrait = page.getByRole("img", {
+    name: "Lam Nguyen wearing a dark navy suit"
+  });
+  await expect(portrait).toBeVisible();
+  const portraitSize = await portrait.evaluate((node) => {
+    const bounds = node.getBoundingClientRect();
+    return { width: bounds.width, height: bounds.height };
+  });
+  expect(Math.abs(portraitSize.width - portraitSize.height)).toBeLessThanOrEqual(
+    1
+  );
 });
 
 test("reduced motion removes transitions", async ({ page }) => {
