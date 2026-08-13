@@ -1,5 +1,8 @@
 import type { CurrentExperience } from "../content/portfolio";
 
+const waystarLogoSrc = new URL("../assets/waystar-logo.png", import.meta.url)
+  .href;
+
 export function createExperience(experience: CurrentExperience): HTMLElement {
   const section = document.createElement("section");
   section.id = "experience";
@@ -8,7 +11,7 @@ export function createExperience(experience: CurrentExperience): HTMLElement {
 
   section.innerHTML = [
     '<div class="experience__header">',
-    '<span class="experience__mark" aria-hidden="true">W</span>',
+    `<img class="experience__logo" data-company-logo src="${waystarLogoSrc}" alt="" width="632" height="106">`,
     '<div class="experience__identity">',
     '<h2 id="experience-title">Current experience</h2>',
     `<p><strong>${experience.role}</strong><span>${experience.employer} · ${experience.employmentType}</span></p>`,

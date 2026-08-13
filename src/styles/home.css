@@ -248,23 +248,17 @@ main {
 
 .experience__header {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: start;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--line);
 }
 
-.experience__mark {
-  display: grid;
-  width: 3.25rem;
-  height: 3.25rem;
-  place-items: center;
-  border-radius: var(--radius-sm);
-  background: var(--blue);
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: 800;
+.experience__logo {
+  width: min(100%, 10rem);
+  height: auto;
+  margin-top: 0.3rem;
 }
 
 .experience__identity h2 {
@@ -610,17 +604,16 @@ main {
   }
 
   .experience__header {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .experience__mark {
-    width: 52px;
-    height: 52px;
+  .experience__logo {
+    width: 9rem;
   }
 
   .experience__meta {
-    grid-column: 2;
+    grid-column: 1;
     text-align: left;
   }
 

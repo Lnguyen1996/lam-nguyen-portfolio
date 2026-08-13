@@ -1,10 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { createAbout } from "../../src/components/about";
 import { createFooter } from "../../src/components/footer";
+import { createExperience } from "../../src/components/experience";
 import { createProjectList } from "../../src/components/projects";
 import { portfolioContent } from "../../src/content/portfolio";
 
 describe("portfolio sections", () => {
+  it("renders Waystar's official company logo", () => {
+    const section = createExperience(portfolioContent.currentExperience);
+    const logo = section.querySelector<HTMLImageElement>("[data-company-logo]");
+    expect(logo?.getAttribute("src")).toContain("waystar-logo.png");
+    expect(logo?.getAttribute("alt")).toBe("");
+    expect(logo?.getAttribute("width")).toBe("632");
+    expect(logo?.getAttribute("height")).toBe("106");
+  });
+
   it("renders five safe repository links and the GitHub profile action", () => {
     const section = createProjectList(
       portfolioContent.projects,

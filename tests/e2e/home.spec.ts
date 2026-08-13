@@ -42,6 +42,15 @@ test("uses the recruiter-first blue system and sans-serif display type", async (
   );
 });
 
+test("shows the official Waystar logo in current experience", async ({
+  page
+}) => {
+  await page.goto("/");
+  const logo = page.locator("[data-company-logo]");
+  await expect(logo).toBeVisible();
+  await expect(logo).toHaveAttribute("src", /waystar-logo/);
+});
+
 test("reduced motion removes transitions", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
