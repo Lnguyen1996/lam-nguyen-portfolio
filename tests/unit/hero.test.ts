@@ -7,7 +7,7 @@ describe("createHero", () => {
   it("renders the approved introduction and monogram without a portrait", () => {
     const hero = createHero({ ...portfolioContent, portraitSrc: null });
     expect(hero.querySelector("h1")?.textContent).toBe(
-      "Full-stack and AI engineer building dependable distributed systems."
+      "Full stack and AI engineer building dependable distributed systems."
     );
     expect(hero.querySelectorAll(".hero__intro")).toHaveLength(3);
     expect(hero.querySelector("img")).toBeNull();

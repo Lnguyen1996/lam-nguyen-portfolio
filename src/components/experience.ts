@@ -1,15 +1,10 @@
-import type { CurrentExperience } from "../content/portfolio";
+import type { CurrentExperience, ExperienceEntry } from "../content/portfolio";
 
 const waystarLogoSrc = new URL("../assets/waystar-logo.png", import.meta.url)
   .href;
 
-export function createExperience(experience: CurrentExperience): HTMLElement {
-  const section = document.createElement("section");
-  section.id = "experience";
-  section.className = "experience";
-  section.setAttribute("aria-labelledby", "experience-title");
-
-  section.innerHTML = [
+function renderCurrent(experience: CurrentExperience): string {
+  return [
     '<div class="experience__header">',
     `<img class="experience__logo" data-company-logo src="${waystarLogoSrc}" alt="" width="632" height="106">`,
     '<div class="experience__identity">',
@@ -26,6 +21,42 @@ export function createExperience(experience: CurrentExperience): HTMLElement {
     `<a class="text-link" href="${experience.href}" target="_blank" rel="noreferrer">View experience on LinkedIn <span aria-hidden="true">↗</span></a>`,
     "</div>"
   ].join("");
+}
+
+function renderPrevious(entries: readonly ExperienceEntry[]): string {
+  if (entries.length === 0) return "";
+  const items = entries
+    .map(
+      (entry) =>
+        [
+          '<li class="experience__previous-item">',
+          '<div class="experience__previous-head">',
+          `<p><strong>${entry.role}</strong><span>${entry.employer} · ${entry.employmentType}</span></p>`,
+          `<p class="experience__meta">${entry.dates}<span>${entry.location}</span></p>`,
+          "</div>",
+          `<p class="experience__previous-summary">${entry.summary}</p>`,
+          "</li>"
+        ].join("")
+    )
+    .join("");
+  return [
+    '<div class="experience__previous">',
+    "<h3>Previous experience</h3>",
+    `<ul>${items}</ul>`,
+    "</div>"
+  ].join("");
+}
+
+export function createExperience(
+  current: CurrentExperience,
+  previous: readonly ExperienceEntry[] = []
+): HTMLElement {
+  const section = document.createElement("section");
+  section.id = "experience";
+  section.className = "experience";
+  section.setAttribute("aria-labelledby", "experience-title");
+
+  section.innerHTML = renderCurrent(current) + renderPrevious(previous);
 
   return section;
 }

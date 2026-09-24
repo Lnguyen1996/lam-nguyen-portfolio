@@ -13,7 +13,10 @@ export function renderApp(root: HTMLElement): void {
   const main = document.createElement("main");
   main.append(
     createHero(portfolioContent),
-    createExperience(portfolioContent.currentExperience),
+    createExperience(
+      portfolioContent.currentExperience,
+      portfolioContent.previousExperience
+    ),
     createProjectList(
       portfolioContent.projects,
       portfolioContent.repositoriesHref

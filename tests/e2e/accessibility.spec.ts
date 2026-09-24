@@ -25,7 +25,7 @@ test("essential identity remains available without JavaScript", async ({ browser
   await page.goto("/");
   await expect(
     page.getByRole("heading", {
-      name: "Full-stack and AI engineer building dependable distributed systems."
+      name: "Full stack and AI engineer building dependable distributed systems."
     })
   ).toBeVisible();
   await expect(page.getByText("Advanced Application Engineer", { exact: true })).toBeVisible();
@@ -33,13 +33,13 @@ test("essential identity remains available without JavaScript", async ({ browser
   for (const title of [
     "LinkedPush",
     "AI Integration for .NET",
-    ".NET Microservices — Clean Architecture",
+    ".NET Microservices: Clean Architecture",
     "Claude Mission Panel",
     "Blazor Intelligent Dashboard"
   ]) {
     await expect(page.getByRole("link", { name: title, exact: true })).toBeVisible();
   }
-  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
+  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(2);
   await context.close();
 });
 
@@ -51,5 +51,5 @@ test("external profile and project links open safely", async ({ page }) => {
     links.every((link) => link.getAttribute("rel") === "noreferrer")
   );
   expect(safeLinks).toBe(true);
-  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
+  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(2);
 });

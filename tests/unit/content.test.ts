@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest";
 import { portfolioContent } from "../../src/content/portfolio";
 
 describe("portfolioContent", () => {
-  it("positions Lam as a full-stack and AI engineer", () => {
+  it("positions Lam as a full stack and AI engineer", () => {
     expect(portfolioContent.role).toBe(
-      "Full-stack and AI engineer · Distributed systems builder"
+      "Full stack and AI engineer · Distributed systems builder"
     );
     expect(portfolioContent.headline).toBe(
-      "Full-stack and AI engineer building dependable distributed systems."
+      "Full stack and AI engineer building dependable distributed systems."
     );
     expect(portfolioContent.intro).toHaveLength(3);
     expect(portfolioContent.portraitSrc).toContain(
@@ -23,7 +23,7 @@ describe("portfolioContent", () => {
       role: "Advanced Application Engineer",
       employer: "Waystar",
       employmentType: "Full-time",
-      dates: "August 2024–Present",
+      dates: "August 2024 to Present",
       location: "Kentucky, United States · Hybrid",
       href: "https://www.linkedin.com/in/lam-nguyen-engineer/details/experience/"
     });
@@ -34,7 +34,7 @@ describe("portfolioContent", () => {
     expect(portfolioContent.projects.map((project) => project.title)).toEqual([
       "LinkedPush",
       "AI Integration for .NET",
-      ".NET Microservices — Clean Architecture",
+      ".NET Microservices: Clean Architecture",
       "Claude Mission Panel",
       "Blazor Intelligent Dashboard"
     ]);
@@ -46,16 +46,35 @@ describe("portfolioContent", () => {
     expect(portfolioContent.repositoriesHref).toBe(
       "https://github.com/Lnguyen1996?tab=repositories"
     );
+    expect(portfolioContent.projects[0].liveHref).toBe(
+      "https://linkedpush.seonavigatorplus.com"
+    );
   });
 
-  it("uses only the approved public contact destinations", () => {
+  it("uses the approved public contact destinations, email included", () => {
     expect(portfolioContent.contacts).toEqual([
       {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/lam-nguyen-engineer"
       },
+      { label: "Email", href: "mailto:lnguyen4e@gmail.com" },
       { label: "GitHub", href: "https://github.com/Lnguyen1996" }
     ]);
-    expect(portfolioContent.contacts.some(({ href }) => href.startsWith("mailto:"))).toBe(false);
+    expect(
+      portfolioContent.contacts.some(({ href }) => href.startsWith("mailto:"))
+    ).toBe(true);
+  });
+
+  it("lists the full LinkedIn career history after the current role", () => {
+    expect(portfolioContent.previousExperience).toHaveLength(5);
+    expect(
+      portfolioContent.previousExperience.map((entry) => entry.role)
+    ).toEqual([
+      "Software Engineer",
+      "Software Engineer",
+      "Software Engineer",
+      "Software Engineer Intern",
+      "Software Engineer Intern"
+    ]);
   });
 });

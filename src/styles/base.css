@@ -10,6 +10,14 @@ html {
   scroll-padding-top: 5.5rem;
 }
 
+/* Without JavaScript the mobile nav stays expanded and tall, so anchor
+   jumps need a larger offset to keep section headings visible. */
+@media (scripting: none) and (max-width: 40rem) {
+  html {
+    scroll-padding-top: 21rem;
+  }
+}
+
 body {
   margin: 0;
   background: var(--page);

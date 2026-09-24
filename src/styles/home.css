@@ -23,16 +23,11 @@
   text-decoration: none;
 }
 
-.site-header__identity span {
-  display: inline-grid;
+.site-header__identity img {
+  display: block;
   width: 2.25rem;
   height: 2.25rem;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--blue);
-  color: #fff;
-  font-size: 0.8rem;
-  letter-spacing: -0.02em;
+  border-radius: 24%;
 }
 
 .site-header nav {
@@ -101,6 +96,17 @@ main {
   margin-inline: auto;
   scroll-margin-top: 6rem;
   border-radius: var(--radius-md);
+}
+
+/* Without JavaScript the mobile nav stays expanded and tall, so anchor
+   jumps need a larger offset to keep section headings visible. */
+@media (scripting: none) and (max-width: 40rem) {
+  .hero,
+  .experience,
+  .work,
+  .about {
+    scroll-margin-top: 21rem;
+  }
 }
 
 .hero {
@@ -312,6 +318,60 @@ main {
   color: var(--blue);
 }
 
+.experience__previous {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.experience__previous h3 {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.experience__previous ul {
+  display: grid;
+  gap: 1.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience__previous-item {
+  padding-bottom: 1.35rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.experience__previous-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.experience__previous-head p {
+  margin: 0;
+}
+
+.experience__previous-head strong {
+  font-size: 1rem;
+}
+
+.experience__previous-head p > span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.experience__previous-head .experience__meta {
+  margin-top: 0.15rem;
+  font-size: 0.88rem;
+}
+
+.experience__previous-summary {
+  max-width: 72ch;
+  margin-top: 0.55rem;
+  color: var(--muted);
+}
+
 .text-link {
   display: inline-flex;
   min-height: 2.75rem;
@@ -377,8 +437,6 @@ main {
   align-items: center;
   padding: clamp(1.25rem, 2.8vw, 2rem) 0;
   border-bottom: 1px solid var(--line);
-  color: inherit;
-  text-decoration: none;
   transition:
     background-color var(--ease),
     padding var(--ease);
@@ -408,6 +466,30 @@ main {
   color: var(--ink);
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   line-height: 1.25;
+}
+
+.project-row__title {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-row__title:hover,
+.project-row__title:focus-visible {
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+.project-row__live {
+  justify-self: start;
+  color: var(--blue-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.project-row__live:hover,
+.project-row__live:focus-visible {
+  text-decoration: underline;
 }
 
 .project-row__content > span {
@@ -501,6 +583,29 @@ main {
 .contact h2 {
   max-width: 15ch;
   margin-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+.contact__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+  padding: 0 1.9rem;
+  border-radius: 999px;
+  background: var(--light-ink);
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform var(--ease),
+    background-color var(--ease);
+}
+
+.contact__cta:hover,
+.contact__cta:focus-visible {
+  transform: translateY(-2px);
+  background: #ffffff;
 }
 
 .contact__row,
@@ -661,8 +766,9 @@ main {
     font-size: 0;
   }
 
-  .site-header__identity span {
-    font-size: 13px;
+  .site-header__identity img {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .hero__actions .button {

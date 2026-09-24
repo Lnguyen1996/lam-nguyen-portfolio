@@ -14,7 +14,10 @@ describe("renderApp", () => {
     expect(document.querySelector("#experience")?.textContent).toContain(
       "Advanced Application Engineer"
     );
-    expect(document.querySelectorAll("#experience li")).toHaveLength(4);
+    expect(document.querySelectorAll("#experience .experience__highlights li")).toHaveLength(4);
+    expect(
+      document.querySelectorAll("#experience .experience__previous-item")
+    ).toHaveLength(5);
     expect(
       document.querySelector("#experience a")?.getAttribute("target")
     ).toBe("_blank");
