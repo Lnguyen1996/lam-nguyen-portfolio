@@ -20,7 +20,7 @@ describe("portfolioContent", () => {
 
   it("contains the approved current Waystar experience", () => {
     expect(portfolioContent.currentExperience).toMatchObject({
-      role: "Advanced Application Engineer",
+      role: "Software Engineer II",
       employer: "Waystar",
       employmentType: "Full-time",
       dates: "August 2024 to Present",
@@ -58,7 +58,8 @@ describe("portfolioContent", () => {
         href: "https://www.linkedin.com/in/lam-nguyen-engineer"
       },
       { label: "Email", href: "mailto:lnguyen4e@gmail.com" },
-      { label: "GitHub", href: "https://github.com/Lnguyen1996" }
+      { label: "GitHub", href: "https://github.com/Lnguyen1996" },
+      { label: "Fiverr", href: "https://www.fiverr.com/s/xrklNPx" }
     ]);
     expect(
       portfolioContent.contacts.some(({ href }) => href.startsWith("mailto:"))

@@ -51,6 +51,12 @@ test("shows the official Waystar logo in current experience", async ({
   await expect(logo).toHaveAttribute("src", /waystar-logo/);
 });
 
+test("analytics tag loads only on the live site", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.locator('script[src*="googletagmanager.com"]')).toHaveCount(0);
+});
+
 test("reduced motion removes transitions", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");

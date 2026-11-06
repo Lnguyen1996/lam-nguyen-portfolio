@@ -12,7 +12,7 @@ describe("renderApp", () => {
       "Current experience"
     );
     expect(document.querySelector("#experience")?.textContent).toContain(
-      "Advanced Application Engineer"
+      "Software Engineer II"
     );
     expect(document.querySelectorAll("#experience .experience__highlights li")).toHaveLength(4);
     expect(
