@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (Google Analytics). Loads only on the live site, so local runs and tests aren't counted. -->
+    <script>
+      if (location.hostname === "lnguyen1996.github.io") {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date());
+        const tag = document.createElement("script");
+        tag.async = true;
+        tag.src = "https://www.googletagmanager.com/gtm.js?id=GTM-PR2HVZF5";
+        document.head.appendChild(tag);
+      }
+    </script>
     <meta name="description" content="Lam Nguyen is a full stack and AI engineer experienced in dependable distributed systems, .NET, TypeScript, cloud infrastructure, and practical AI products.">
     <meta name="theme-color" content="#EEF3F7">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
