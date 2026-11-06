@@ -12,7 +12,7 @@ test("homepage has no detectable WCAG A or AA violations", async ({ page }) => {
 test("keyboard focus reaches every primary profile destination", async ({ page }) => {
   await page.goto("/");
   const navigation = page.getByRole("navigation", { name: "Primary" });
-  for (const label of ["Experience", "Projects", "About", "LinkedIn", "GitHub"]) {
+  for (const label of ["Experience", "Projects", "About", "LinkedIn", "GitHub", "Fiverr"]) {
     const link = navigation.getByRole("link", { name: label, exact: true });
     await link.focus();
     await expect(link).toBeFocused();
@@ -28,7 +28,7 @@ test("essential identity remains available without JavaScript", async ({ browser
       name: "Full stack and AI engineer building dependable distributed systems."
     })
   ).toBeVisible();
-  await expect(page.getByText("Advanced Application Engineer", { exact: true })).toBeVisible();
+  await expect(page.getByText("Software Engineer II", { exact: true })).toBeVisible();
   await expect(page.getByText(/Waystar · Full-time/)).toBeVisible();
   for (const title of [
     "LinkedPush",

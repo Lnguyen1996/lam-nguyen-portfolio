@@ -57,7 +57,7 @@ describe("portfolio sections", () => {
     expect(footer.querySelector("h2")?.textContent).toBe(
       "Have a thoughtful problem to solve?"
     );
-    expect(footer.querySelectorAll('a[target="_blank"][rel="noreferrer"]')).toHaveLength(2);
+    expect(footer.querySelectorAll('a[target="_blank"][rel="noreferrer"]')).toHaveLength(3);
     expect(footer.querySelector(".contact__cta")?.getAttribute("href")).toBe(
       "mailto:lnguyen4e@gmail.com"
     );

@@ -54,7 +54,7 @@ export const portfolioContent: PortfolioContent = {
   portraitSrc,
   portraitAlt: "Lam Nguyen wearing a dark navy suit",
   currentExperience: {
-    role: "Advanced Application Engineer",
+    role: "Software Engineer II",
     employer: "Waystar",
     employmentType: "Full-time",
     dates: "August 2024 to Present",
@@ -171,6 +171,7 @@ export const portfolioContent: PortfolioContent = {
       href: "https://www.linkedin.com/in/lam-nguyen-engineer"
     },
     { label: "Email", href: "mailto:lnguyen4e@gmail.com" },
-    { label: "GitHub", href: "https://github.com/Lnguyen1996" }
+    { label: "GitHub", href: "https://github.com/Lnguyen1996" },
+    { label: "Fiverr", href: "https://www.fiverr.com/s/xrklNPx" }
   ]
 };
